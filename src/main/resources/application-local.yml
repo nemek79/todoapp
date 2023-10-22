@@ -1,0 +1,32 @@
+server:
+  port: 7002
+logging:
+  config: classpath:log4j-local.xml
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+     serialization:
+       write-dates-as-timestamps: false
+     time-zone: Europe/Madrid
+     locale: es_ES
+  datasource:
+    db:
+      jdbc-url: jdbc:mysql://localhost/todoappbd?useSSL=false&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Madrid
+      username: todoappuser
+      password: todoappuser
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 500KB
+      max-request-size: 500KB
+aspect:
+  enabled: true      
